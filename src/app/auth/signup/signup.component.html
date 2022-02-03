@@ -1,0 +1,70 @@
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mx-4">
+              <div class="card-body p-4">
+                <form [formGroup]="registeredForm" (ngSubmit)="onSubmit()">
+                  <h1>Register</h1>
+                  <p class="text-muted">Create your account</p>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Username" 
+                    autocomplete="off" required formControlName="name">
+                  </div>
+                  <span class="text-danger" *ngIf="(f.name.touched || issubmited) && 
+                            f.name.errors?.required">
+                  Name is required
+                </span>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Email" 
+                    autocomplete="off" required formControlName="email">
+                  </div>
+                  <span class="text-danger" *ngIf="(f.email.touched || issubmited) && 
+                            f.email.errors?.required">
+                  Email is required
+                </span>
+                <span class="text-danger" *ngIf="(f.email.touched || issubmited) && 
+                        f.email.errors?.email">
+                  Email is not valid
+                </span>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="number" 
+                  autocomplete="off" required formControlName="number" maxlength="10">
+                </div>
+                <span class="text-danger" *ngIf="(f.number.touched || issubmited) && 
+                            f.number.errors?.required">
+                  Number is required
+                </span>
+                  <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password"
+                    autocomplete="off" required formControlName="password">
+                  </div>
+                  <span class="text-danger" *ngIf="(f.password.touched || issubmited) && 
+                            f.password.errors?.required">
+                  Password is required
+                </span>
+                  <div class="input-group mb-4">
+                    <input type="password" class="form-control" placeholder="Repeat password" 
+                    autocomplete="off" required formControlName="conf_password">
+                  </div>
+                  <span class="text-danger" *ngIf="(f.conf_password.touched || issubmited) && 
+                            f.conf_password.errors?.required">
+                  confirm Password is required
+                </span>
+                <div *ngIf="isPasswordMatch" class="text-danger">
+                    Password and Confirm Password not be match.</div>
+                <div>
+                    <button type="submit" class="btn btn-block btn-success" [disabled]="registeredForm.invalid">
+                        Create Account
+                    </button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  

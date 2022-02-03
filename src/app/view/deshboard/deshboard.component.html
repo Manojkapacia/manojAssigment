@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<table class="table table-hover" style="width: 80%; margin-left: 110px;">
+    <thead>
+        <tr>
+            <th scope="col">Sr. no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Number</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let item of userList;let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.number}}</td>
+            <td><i class="fa fa-eye" aria-hidden="true" (click)="openModal(item._id)"></i>
+                <i class="fas fa-edit" style="margin-left: 20px; margin-right: 20px;"
+                (click)="editUser(item._id)"></i>
+                <i class="fas fa-trash-alt" (click)="deleteUser(item._id)"></i>
+            </td>
+        </tr>
+        
+      
+    </tbody>
+    <!-- <tbody *ngIf="userList && userList?.length==0">
+        
+        <tr>
+           <td>no deta found</td>
+        </tr>
+        
+      
+    </tbody> -->
+</table>
+<!-- Show the list of user -->
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">User Data</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <!-- <p><b>Name:</b> {{data.email}}</p> *ngFor="let data of singleUser" -->
+                <p><b>Name: </b>{{singleUser.name}}</p>
+                <p><b>Email: </b>{{singleUser.email}}</p>
+                <p><b>Number: </b> {{singleUser.number}}</p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ul *ngFor="let user of allData"><li>{{user.name}}</li></ul> -->
+ 
+<!-- Show the list of user -->
+<!-- <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':showUser}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Model Title</h4>
+                <button type="button" class="close" aria-label="Close" 
+                (click)="deleteUserHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Model body text</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" 
+                (click)="deleteUserHandled()">Cancle</button>
+                <button type="button" class="btn btn-danger" 
+                (click)="deleteUserHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->

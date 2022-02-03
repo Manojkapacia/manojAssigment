@@ -1,0 +1,23 @@
+{
+    "app":{
+        "port":"4000"
+    },
+
+    "db":{
+        // "name" :  "nodeOperation",
+        // "host" : "localhost",
+        "name" :  "CRUD",
+        "host" : "cluster0.2rby3.mongodb.net",
+        "auth" : true,
+        "username" : "Manojkapasia",
+        "password" : "kapasia",
+        "port" : 27017,
+        "mongoose": {
+            "useMongoClient": true,
+            "autoIndex": true, // Don't build indexes
+            "poolSize": 10, // Maintain up to 10 socket connections
+            "bufferMaxEntries": 0
+          }
+    }
+
+}
